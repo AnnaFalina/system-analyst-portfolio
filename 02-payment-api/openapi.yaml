@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: API оплаты
+  version: "1.0"
+  description: Метод отправки данных платежному шлюзу
+
+paths:
+  /payments:
+    post:
+      summary: Провести оплату
+      parameters:
+        - name: Date
+          in: header
+          required: true
+          schema:
+            type: string
+            format: date-time
+          description: Дата и время запроса
+        - name: System-Id
+          in: header
+          required: true
+          schema:
+            type: string
+          description: Идентификатор системы, отправившей запрос
+        - name: RqUID
+          in: header
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: Уникальный идентификатор запроса
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+          description: Данные для авторизации запроса(чтобы знать, кто осуществил оплату)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [order_id, amount, payment_method]
+              properties:
+                order_id:
+                  type: string
+                  description: Номер заказа 
+                amount:
+                  type: string
+                  description: Сумма к оплате
+                payment_method:
+                  type: string
+                  description: Способ оплаты
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  order_id:
+                    type: string
+                  status:
+                    type: string
+                    enum: [успешно, отклонено, ошибка]
+        '404':
+          description: Заказ не найден
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
