@@ -1,2 +1,2 @@
-# System_analyst_portfolio
+# system-analyst-portfolio
 Учебный кейс системного аналитика: схема статусов заказа, OpenAPI- контракт платежного шлюза, проверка гипотез и данных на SQL и Python(pandas, pytest) , ERD с выявлением дублей
