@@ -2,9 +2,7 @@
 
 Проверка требований и гипотез на данных после нескольких месяцев работы системы.
 
-## Проверка 1. Неоплаченные выданные заказы
-
-**Требование:** заказ нельзя выдать без полной оплаты.
+## Проверка 1. Выявление полностью или частично неоплаченных заказов
 
 ```sql
 SELECT o.id AS order_id,
@@ -15,16 +13,34 @@ JOIN payments p ON p.order_id = o.id
 WHERE o.status IN ('выдан', 'доставлен')
 GROUP BY o.id, o.amount
 HAVING SUM(p.amount) < o.amount;
+
+**Требование:** заказ нельзя выдать без полной оплаты.
+
+## Проверка 2. Гипотеза о проблемах в экпресс-тарифе
+
+```sql
 SELECT 100.0 * COUNT(*) / (
   SELECT COUNT(*) FROM orders WHERE tariff = 'обычный'
 ) AS процент_проблем
 FROM orders
 WHERE tariff = 'обычный' AND status = 'проблема';
 
+SELECT 100.0 * COUNT(*) / (
+ SELECT COUNT(*)  FROM orders  WHERE tariff = 'экспресс'
+ ) AS процентное_соотношение
+FROM orders
+WHERE tariff = 'экспресс'  AND status = 'проблема';
 
+**Гипотеза подтвердилась:**  Процент проблем в экспресс-тарифах выше в 22,22%/5,88%=3,78 раза.
+
+## Проверка 3. Выявим заказы с просроченным сроком выдачи
+
+```sql
 SELECT id, ready_date,
        DATE '2026-08-05' - ready_date AS время_хранения
 FROM orders
 WHERE pickup_date IS NULL
   AND ready_date IS NOT NULL
   AND DATE '2026-08-05' - ready_date >= 25;
+
+**Требование:**Соблюдать правило оферты о 30 днях
