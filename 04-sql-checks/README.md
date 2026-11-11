@@ -50,3 +50,16 @@ WHERE pickup_date IS NULL
 ![Результат2](sql3.jpg)
 
 **Требование:** соблюдать правило оферты о 30 днях хранения.
+
+## Python-реализация
+
+Проверка гипотезы о тарифах переписана на pandas — аналог SQL-запроса
+для ad-hoc анализа выгрузок.
+
+- [`tariff_check.py`](./tariff_check.py) — расчёт доли проблем по тарифам
+- [`test_tariff_check.py`](./test_tariff_check.py) — тесты (pytest)
+- [`data/orders.csv`](./data/orders.csv) — тестовые данные
+
+```bash
+python tariff_check.py
+pytest -q
