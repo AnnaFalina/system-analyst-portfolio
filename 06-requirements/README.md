@@ -20,6 +20,6 @@
 | I-19 | Время отклика ≤ 5 сек | При обычной нагрузке |
 | I-20 | MTTR ≤ 1 час | Восстановление после сбоя |
 
-
+**Полная версия**
 
 **![Полная версия](https://github.com/AnnaFalina/system-analyst-portfolio/blob/main/06-requirements/full-t.jpg) 
