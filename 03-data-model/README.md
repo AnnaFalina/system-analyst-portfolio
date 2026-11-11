@@ -35,4 +35,4 @@
 
 ## Файлы
  — ER-диаграмма
-- [`erd.png`](./ERD.jpg)
+![`ERD.jpg`](./ERD.jpg)
