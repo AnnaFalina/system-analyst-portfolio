@@ -35,4 +35,4 @@
 
 ## Файлы
  — ER-диаграмма
-- [`erd.png`](./ERD.jpd)
+- [`erd.png`](./ERD.jpg)
