@@ -47,5 +47,6 @@ WHERE pickup_date IS NULL
   AND ready_date IS NOT NULL
   AND DATE '2026-08-05' - ready_date >= 25;
 ```
+![Результат2](sql-3.jpg)
 
 **Требование:** соблюдать правило оферты о 30 днях хранения.
