@@ -1,5 +1,4 @@
-```mermaid
-    
+```mermaid   
 sequenceDiagram
     actor Client as Клиент
     participant Staff as Сотрудник пункта
@@ -12,5 +11,6 @@ sequenceDiagram
     System->>SMS: Запрос на отправку уведомления
     SMS-->>Client: SMS с деталями заказа
     Staff-->>Client: Выдает бумажную копию (опционально)
+
 ...
 ```
