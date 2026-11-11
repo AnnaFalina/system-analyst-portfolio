@@ -1,3 +1,4 @@
+
 sequenceDiagram
     actor Client as Клиент
     participant Staff as Сотрудник пункта
