@@ -19,4 +19,7 @@
 | I-17 | Нагрузка 270 RPS | Система отвечает корректно |
 | I-19 | Время отклика ≤ 5 сек | При обычной нагрузке |
 | I-20 | MTTR ≤ 1 час | Восстановление после сбоя |
-![Полная версия](06-requirements/full-t.jpg) 
+
+
+
+**![Полная версия](https://github.com/AnnaFalina/system-analyst-portfolio/blob/main/06-requirements/full-t.jpg) 
