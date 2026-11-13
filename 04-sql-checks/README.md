@@ -56,7 +56,7 @@ WHERE pickup_date IS NULL
 Выявление неоплаченных заказов переписано на pandas — аналог SQL-запроса
 для ad-hoc анализа выгрузок.
 
-- [`tariff_check.py`](./tariff_check.py) — выявление заказов-нарушителей
-- [`test_tariff_check.py`](./test_tariff_check.py) — тесты (pytest)
+- [`unpaid_check.py`](./unpaid_check.py) — выявление заказов-нарушителей
+- [`test_unpaid_check.py`](./test_unpaid_check.py) — тесты (pytest)
 - [`data/orders.csv`](./data/orders.csv) — тестовые данные
 ```
