@@ -3,8 +3,7 @@ from unpaid_check import find_unpaid_orders
 def test_unpaid_orders_found():
     result = find_unpaid_orders()
     
-    # Проверяем, что скрипт вообще нашел неоплаченные заказы (или не нашел, если их нет)
-    # Самое главное правило: у всех найденных заказов долг должен быть больше нуля!
+    # Проверяем, найдены ли неоплаченные заказы
     for index, row in result.iterrows():
         total_paid = row["total_paid"]
         amount = row["amount"]
@@ -17,6 +16,6 @@ def test_unpaid_orders_found():
         assert row["status"] in ["выдан", "доставлен"], f"Ошибка в заказе {order_id}: неверный статус!"
 
 def test_all_orders_are_checked():
-    # Проверяем, что скрипт не падает и возвращает корректный DataFrame
+    # Проверяем корректность
     result = find_unpaid_orders()
     assert result is not None
