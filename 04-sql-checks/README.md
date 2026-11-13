@@ -61,5 +61,3 @@ WHERE pickup_date IS NULL
 - [`data/orders.csv`](./data/orders.csv) — тестовые данные
 
 ```bash
-python tariff_check.py
-pytest -q
