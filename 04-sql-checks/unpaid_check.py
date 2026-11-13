@@ -12,7 +12,6 @@ def find_unpaid_orders():
     payments = pd.read_csv(PAYMENTS_PATH)
 
     # 2. Группируем платежи по заказам и считаем сумму
-    # (у одного заказа может быть несколько платежей, как у заказа №3)
     payments_sum = payments.groupby("order_id")["amount"].sum().reset_index()
     payments_sum.rename(columns={"amount": "total_paid"}, inplace=True)
 
